@@ -23,5 +23,12 @@ const tweetSchema = new mongoose.Schema({
 const Tweet = new mongoose.model("Tweet",tweetSchema)
 
 const CommentSchema = new mongoose.Schema({
-    Id :
+    Id :ObjectId,
+    content : String,
+    Likes : Number,
+    Date : Date ,
+    RT: Number,
+    UserId:String, 
 })
+
+const Comment = new mongoose.model("Comment",CommentSchema)
