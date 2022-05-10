@@ -13,13 +13,18 @@ const checkIfExist = (req, res, next)=>{
         }
     })
 }
-router.post('/', checkIfExist, (req, res)=>{
-    const NewUser = new UserModel(req.body)
-    const salt = 10
-    console.log(bcrypt.hash(password, salt)) 
-    NewUser.save().then(data=>{
-        res.status(200).json(data)
-    })
+router.post('/', 
+checkIfExist, 
+(req, res)=>{
+    const saltRounds = 10;
+    bcrypt.hash(req.body.Password, saltRounds, function(err, hash) {
+        req.body.Password = hash
+            const NewUser = new UserModel(req.body)
+            NewUser.save().then(data=>{
+                res.status(200).json(data)
+            })
+    });
+
 })
 
 
