@@ -6,7 +6,8 @@ const UserSchema = new mongoose.Schema({
     Email :String,
     Password : String ,
     Phone : Number,
-    Follows : Number,
+    FollowedBy : [String],
+    Follows : [String],
 })
 const UserModel = mongoose.model("user",UserSchema)
 
