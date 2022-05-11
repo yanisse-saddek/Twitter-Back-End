@@ -20,7 +20,7 @@ passport.authenticate('local'),
 })
 
 router.get('/tl', (req, res)=>{
-
+        console.log('ok')
 })
 
 module.exports = router
