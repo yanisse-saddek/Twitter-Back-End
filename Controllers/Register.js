@@ -13,9 +13,8 @@ const checkIfExist = (req, res, next)=>{
         }
     })
 }
-router.post('/', 
-checkIfExist, 
-(req, res)=>{
+
+router.post('/', checkIfExist, (req, res)=>{
     const saltRounds = 10;
     bcrypt.hash(req.body.Password, saltRounds, function(err, hash) {
         req.body.Password = hash

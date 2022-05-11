@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const UserModel = require('../Models/UserModel')
-const UserModel = require('../Models/UserModel')
+const TweetModel = require('../Models/TweetModel')
 const passport = require('../config/passport')
 
 
@@ -17,10 +17,6 @@ passport.authenticate('local'),
     }else{
       res.json("eh no")
     }
-})
-
-router.get('/tl', (req, res)=>{
-        console.log('ok')
 })
 
 module.exports = router
